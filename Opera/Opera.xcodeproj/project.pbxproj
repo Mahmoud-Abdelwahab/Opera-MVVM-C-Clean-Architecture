@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		A749E1D3267B95E700D47FA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A749E1D1267B95E700D47FA3 /* Main.storyboard */; };
 		A749E1D5267B95EC00D47FA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A749E1D4267B95EC00D47FA3 /* Assets.xcassets */; };
 		A749E1D8267B95EC00D47FA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A749E1D6267B95EC00D47FA3 /* LaunchScreen.storyboard */; };
+		A749E1E1267B9B7400D47FA3 /* XCoordinatorRx in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1E0267B9B7400D47FA3 /* XCoordinatorRx */; };
+		A749E1E4267B9BD000D47FA3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1E3267B9BD000D47FA3 /* SDWebImage */; };
+		A749E1E7267B9C1F00D47FA3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1E6267B9C1F00D47FA3 /* SkeletonView */; };
+		A749E1EA267B9C7900D47FA3 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1E9267B9C7900D47FA3 /* Moya */; };
+		A749E1EC267B9C7900D47FA3 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1EB267B9C7900D47FA3 /* RxMoya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A749E1EC267B9C7900D47FA3 /* RxMoya in Frameworks */,
+				A749E1E4267B9BD000D47FA3 /* SDWebImage in Frameworks */,
+				A749E1E7267B9C1F00D47FA3 /* SkeletonView in Frameworks */,
+				A749E1EA267B9C7900D47FA3 /* Moya in Frameworks */,
+				A749E1E1267B9B7400D47FA3 /* XCoordinatorRx in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +66,143 @@
 		A749E1CA267B95E700D47FA3 /* Opera */ = {
 			isa = PBXGroup;
 			children = (
-				A749E1CB267B95E700D47FA3 /* AppDelegate.swift */,
-				A749E1CD267B95E700D47FA3 /* SceneDelegate.swift */,
+				A749E1ED267B9C9700D47FA3 /* App */,
+				A749E1EE267B9C9C00D47FA3 /* Domain */,
+				A749E1EF267B9CA300D47FA3 /* Data */,
 				A749E1CF267B95E700D47FA3 /* ViewController.swift */,
 				A749E1D1267B95E700D47FA3 /* Main.storyboard */,
-				A749E1D4267B95EC00D47FA3 /* Assets.xcassets */,
-				A749E1D6267B95EC00D47FA3 /* LaunchScreen.storyboard */,
 				A749E1D9267B95EC00D47FA3 /* Info.plist */,
 			);
 			path = Opera;
+			sourceTree = "<group>";
+		};
+		A749E1ED267B9C9700D47FA3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A749E1F0267B9CE400D47FA3 /* ScreenViews */,
+				A749E1F1267B9CE900D47FA3 /* Host */,
+				A749E1F2267B9CF800D47FA3 /* Assets */,
+				A749E1F3267B9D0700D47FA3 /* Utilities */,
+				A749E1F4267B9D1B00D47FA3 /* Core */,
+				A749E1F5267B9D2E00D47FA3 /* Coordinator */,
+				A749E1F6267B9D3D00D47FA3 /* Scenes */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A749E1EE267B9C9C00D47FA3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A749E1F9267B9E3600D47FA3 /* Entities */,
+				A749E1F8267B9E2A00D47FA3 /* Repositories */,
+				A749E1F7267B9E1B00D47FA3 /* Use Cases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A749E1EF267B9CA300D47FA3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A749E1FB267B9E6A00D47FA3 /* Remote Data Source */,
+				A749E1FC267B9E7700D47FA3 /* Local Data Source */,
+				A749E1FA267B9E5500D47FA3 /* Repositories Implementation */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A749E1F0267B9CE400D47FA3 /* ScreenViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ScreenViews;
+			sourceTree = "<group>";
+		};
+		A749E1F1267B9CE900D47FA3 /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				A749E1CB267B95E700D47FA3 /* AppDelegate.swift */,
+				A749E1CD267B95E700D47FA3 /* SceneDelegate.swift */,
+				A749E1D6267B95EC00D47FA3 /* LaunchScreen.storyboard */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
+		A749E1F2267B9CF800D47FA3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A749E1D4267B95EC00D47FA3 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A749E1F3267B9D0700D47FA3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A749E1F4267B9D1B00D47FA3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A749E1F5267B9D2E00D47FA3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A749E1F6267B9D3D00D47FA3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A749E1F7267B9E1B00D47FA3 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		A749E1F8267B9E2A00D47FA3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A749E1F9267B9E3600D47FA3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		A749E1FA267B9E5500D47FA3 /* Repositories Implementation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Repositories Implementation";
+			sourceTree = "<group>";
+		};
+		A749E1FB267B9E6A00D47FA3 /* Remote Data Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Remote Data Source";
+			sourceTree = "<group>";
+		};
+		A749E1FC267B9E7700D47FA3 /* Local Data Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Local Data Source";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +221,13 @@
 			dependencies = (
 			);
 			name = Opera;
+			packageProductDependencies = (
+				A749E1E0267B9B7400D47FA3 /* XCoordinatorRx */,
+				A749E1E3267B9BD000D47FA3 /* SDWebImage */,
+				A749E1E6267B9C1F00D47FA3 /* SkeletonView */,
+				A749E1E9267B9C7900D47FA3 /* Moya */,
+				A749E1EB267B9C7900D47FA3 /* RxMoya */,
+			);
 			productName = Opera;
 			productReference = A749E1C8267B95E700D47FA3 /* Opera.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +255,12 @@
 				Base,
 			);
 			mainGroup = A749E1BF267B95E700D47FA3;
+			packageReferences = (
+				A749E1DF267B9B7400D47FA3 /* XCRemoteSwiftPackageReference "XCoordinator" */,
+				A749E1E2267B9BD000D47FA3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				A749E1E5267B9C1F00D47FA3 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				A749E1E8267B9C7900D47FA3 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = A749E1C9267B95E700D47FA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +492,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A749E1DF267B9B7400D47FA3 /* XCRemoteSwiftPackageReference "XCoordinator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quickbirdstudios/XCoordinator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.7;
+			};
+		};
+		A749E1E2267B9BD000D47FA3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+		A749E1E5267B9C1F00D47FA3 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.2;
+			};
+		};
+		A749E1E8267B9C7900D47FA3 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A749E1E0267B9B7400D47FA3 /* XCoordinatorRx */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A749E1DF267B9B7400D47FA3 /* XCRemoteSwiftPackageReference "XCoordinator" */;
+			productName = XCoordinatorRx;
+		};
+		A749E1E3267B9BD000D47FA3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A749E1E2267B9BD000D47FA3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		A749E1E6267B9C1F00D47FA3 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A749E1E5267B9C1F00D47FA3 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		A749E1E9267B9C7900D47FA3 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A749E1E8267B9C7900D47FA3 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		A749E1EB267B9C7900D47FA3 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A749E1E8267B9C7900D47FA3 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A749E1C0267B95E700D47FA3 /* Project object */;
 }
