@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E1CB267B95E700D47FA3 /* AppDelegate.swift */; };
-		A749E1CE267B95E700D47FA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E1CD267B95E700D47FA3 /* SceneDelegate.swift */; };
 		A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E1CF267B95E700D47FA3 /* ViewController.swift */; };
 		A749E1D3267B95E700D47FA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A749E1D1267B95E700D47FA3 /* Main.storyboard */; };
 		A749E1D5267B95EC00D47FA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A749E1D4267B95EC00D47FA3 /* Assets.xcassets */; };
@@ -18,17 +17,24 @@
 		A749E1E7267B9C1F00D47FA3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1E6267B9C1F00D47FA3 /* SkeletonView */; };
 		A749E1EA267B9C7900D47FA3 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1E9267B9C7900D47FA3 /* Moya */; };
 		A749E1EC267B9C7900D47FA3 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A749E1EB267B9C7900D47FA3 /* RxMoya */; };
+		A749E1FF267C28CF00D47FA3 /* LaunchCoordinatore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E1FE267C28CF00D47FA3 /* LaunchCoordinatore.swift */; };
+		A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */; };
+		A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */; };
+		A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E205267CBEB600D47FA3 /* Transition+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A749E1C8267B95E700D47FA3 /* Opera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A749E1CB267B95E700D47FA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A749E1CD267B95E700D47FA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A749E1CF267B95E700D47FA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A749E1D2267B95E700D47FA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A749E1D4267B95EC00D47FA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A749E1D7267B95EC00D47FA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A749E1D9267B95EC00D47FA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A749E1FE267C28CF00D47FA3 /* LaunchCoordinatore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinatore.swift; sourceTree = "<group>"; };
+		A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
+		A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
+		A749E205267CBEB600D47FA3 /* Transition+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				A749E1CB267B95E700D47FA3 /* AppDelegate.swift */,
-				A749E1CD267B95E700D47FA3 /* SceneDelegate.swift */,
 				A749E1D6267B95EC00D47FA3 /* LaunchScreen.storyboard */,
 			);
 			path = Host;
@@ -152,6 +157,10 @@
 		A749E1F5267B9D2E00D47FA3 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				A749E204267CBE9B00D47FA3 /* Extentions */,
+				A749E1FE267C28CF00D47FA3 /* LaunchCoordinatore.swift */,
+				A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */,
+				A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -203,6 +212,14 @@
 			children = (
 			);
 			path = "Local Data Source";
+			sourceTree = "<group>";
+		};
+		A749E204267CBE9B00D47FA3 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				A749E205267CBEB600D47FA3 /* Transition+Ex.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +307,10 @@
 			files = (
 				A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */,
 				A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */,
-				A749E1CE267B95E700D47FA3 /* SceneDelegate.swift in Sources */,
+				A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */,
+				A749E1FF267C28CF00D47FA3 /* LaunchCoordinatore.swift in Sources */,
+				A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */,
+				A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 868AXWRZ85;
 				INFOPLIST_FILE = Opera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 868AXWRZ85;
 				INFOPLIST_FILE = Opera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
