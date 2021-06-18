@@ -21,6 +21,15 @@
 		A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */; };
 		A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */; };
 		A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E205267CBEB600D47FA3 /* Transition+Ex.swift */; };
+		A749E20A267CC29000D47FA3 /* NowPlayingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E208267CC29000D47FA3 /* NowPlayingVC.swift */; };
+		A749E20B267CC29000D47FA3 /* NowPlayingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E209267CC29000D47FA3 /* NowPlayingVC.xib */; };
+		A749E20D267CC29C00D47FA3 /* NowPlayingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E20C267CC29C00D47FA3 /* NowPlayingVM.swift */; };
+		A749E211267CC2C500D47FA3 /* TopRatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E20F267CC2C500D47FA3 /* TopRatedVC.swift */; };
+		A749E212267CC2C500D47FA3 /* TopRatedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E210267CC2C500D47FA3 /* TopRatedVC.xib */; };
+		A749E216267CC2EB00D47FA3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E214267CC2EB00D47FA3 /* SearchVC.swift */; };
+		A749E217267CC2EB00D47FA3 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E215267CC2EB00D47FA3 /* SearchVC.xib */; };
+		A749E219267CC2FA00D47FA3 /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E218267CC2FA00D47FA3 /* SearchVM.swift */; };
+		A749E21B267CC31000D47FA3 /* TopRatedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E21A267CC31000D47FA3 /* TopRatedVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +44,15 @@
 		A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
 		A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
 		A749E205267CBEB600D47FA3 /* Transition+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Ex.swift"; sourceTree = "<group>"; };
+		A749E208267CC29000D47FA3 /* NowPlayingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingVC.swift; sourceTree = "<group>"; };
+		A749E209267CC29000D47FA3 /* NowPlayingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingVC.xib; sourceTree = "<group>"; };
+		A749E20C267CC29C00D47FA3 /* NowPlayingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingVM.swift; sourceTree = "<group>"; };
+		A749E20F267CC2C500D47FA3 /* TopRatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedVC.swift; sourceTree = "<group>"; };
+		A749E210267CC2C500D47FA3 /* TopRatedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRatedVC.xib; sourceTree = "<group>"; };
+		A749E214267CC2EB00D47FA3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		A749E215267CC2EB00D47FA3 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		A749E218267CC2FA00D47FA3 /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		A749E21A267CC31000D47FA3 /* TopRatedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +186,9 @@
 		A749E1F6267B9D3D00D47FA3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A749E213267CC2CE00D47FA3 /* Search */,
+				A749E20E267CC2A400D47FA3 /* TopRated */,
+				A749E207267CC24B00D47FA3 /* NowPlaying */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -220,6 +241,36 @@
 				A749E205267CBEB600D47FA3 /* Transition+Ex.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		A749E207267CC24B00D47FA3 /* NowPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				A749E208267CC29000D47FA3 /* NowPlayingVC.swift */,
+				A749E20C267CC29C00D47FA3 /* NowPlayingVM.swift */,
+				A749E209267CC29000D47FA3 /* NowPlayingVC.xib */,
+			);
+			path = NowPlaying;
+			sourceTree = "<group>";
+		};
+		A749E20E267CC2A400D47FA3 /* TopRated */ = {
+			isa = PBXGroup;
+			children = (
+				A749E20F267CC2C500D47FA3 /* TopRatedVC.swift */,
+				A749E21A267CC31000D47FA3 /* TopRatedVM.swift */,
+				A749E210267CC2C500D47FA3 /* TopRatedVC.xib */,
+			);
+			path = TopRated;
+			sourceTree = "<group>";
+		};
+		A749E213267CC2CE00D47FA3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A749E214267CC2EB00D47FA3 /* SearchVC.swift */,
+				A749E218267CC2FA00D47FA3 /* SearchVM.swift */,
+				A749E215267CC2EB00D47FA3 /* SearchVC.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +345,9 @@
 			files = (
 				A749E1D8267B95EC00D47FA3 /* LaunchScreen.storyboard in Resources */,
 				A749E1D5267B95EC00D47FA3 /* Assets.xcassets in Resources */,
+				A749E217267CC2EB00D47FA3 /* SearchVC.xib in Resources */,
+				A749E20B267CC29000D47FA3 /* NowPlayingVC.xib in Resources */,
+				A749E212267CC2C500D47FA3 /* TopRatedVC.xib in Resources */,
 				A749E1D3267B95E700D47FA3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,11 +359,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A749E211267CC2C500D47FA3 /* TopRatedVC.swift in Sources */,
+				A749E20D267CC29C00D47FA3 /* NowPlayingVM.swift in Sources */,
 				A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */,
 				A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */,
 				A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */,
 				A749E1FF267C28CF00D47FA3 /* LaunchCoordinatore.swift in Sources */,
+				A749E216267CC2EB00D47FA3 /* SearchVC.swift in Sources */,
 				A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */,
+				A749E20A267CC29000D47FA3 /* NowPlayingVC.swift in Sources */,
+				A749E21B267CC31000D47FA3 /* TopRatedVM.swift in Sources */,
+				A749E219267CC2FA00D47FA3 /* SearchVM.swift in Sources */,
 				A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

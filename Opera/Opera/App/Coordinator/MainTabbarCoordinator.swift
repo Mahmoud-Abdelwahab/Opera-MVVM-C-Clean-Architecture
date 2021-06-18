@@ -25,7 +25,7 @@ class MainTabbarCoordinator: TabBarCoordinator<MainTabbarRoute> {
     
     // MARK: Overrides
     
-    override func prepareTransition(for route: MainTabbarRoute) -> ViewTransition {
+    override func prepareTransition(for route: MainTabbarRoute) -> TabBarTransition {
         switch route {
         
         case .nowPlaying:
