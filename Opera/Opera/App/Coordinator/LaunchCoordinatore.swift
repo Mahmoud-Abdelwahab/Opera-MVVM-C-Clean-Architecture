@@ -27,10 +27,12 @@ class AppCoordinator: ViewCoordinator<AppRoute> {
     override func prepareTransition(for route: AppRoute) -> ViewTransition {
         switch route {
         case .onboarding:
-            return .switchTo(OnBoardingCoordinator(router: weakRouter), in: rootViewController)
+            return .none()
+//            return .switchTo(OnBoardingCoordinator(router: weakRouter), in: rootViewController)
         case .mainTabBar:
 //            return .switchTo(MainCoordinator(router: weakRouter), in: rootViewController)
-            return .switchTo(NavigationalTabCoordinator(router: weakRouter), in: rootViewController)
+//            return .switchTo(NavigationalTabCoordinator(router: weakRouter), in: rootViewController)
+            return .none()
         }
     }
     
