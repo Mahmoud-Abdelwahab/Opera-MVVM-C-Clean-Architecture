@@ -22,12 +22,12 @@ class MainTabbarCoordinator: TabBarCoordinator<MainTabbarRoute> {
 //        let initialRoute = con.is_login() ? AppRoute.main : AppRoute.auth
         let customTabBar = TextyTabBarController()
         
-        let nowPlayingCoordinator = NowPlayingCoordinator()
+        let nowPlayingCoordinator = NowPlayingAndTopRatedCoordinator(router: .nowPlaying)
         let nowPlayingBarItem = TextyTabBarItem(title: "Now Playing", image: #imageLiteral(resourceName: "icon-play"), tag: 0)
         nowPlayingBarItem.color = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
         nowPlayingCoordinator.rootViewController.tabBarItem = nowPlayingBarItem
 
-        let topRatedCoordinator   = TopRatedCoordinator()
+        let topRatedCoordinator   = NowPlayingAndTopRatedCoordinator(router: .topRated)
         let topRatedBarItem = TextyTabBarItem(title: "Top Rated", image: #imageLiteral(resourceName: "icon-like"), tag: 1)
         topRatedBarItem.color     = #colorLiteral(red: 0.5141925812, green: 0.5142051578, blue: 0.5141984224, alpha: 1)
         topRatedCoordinator.rootViewController.tabBarItem = topRatedBarItem

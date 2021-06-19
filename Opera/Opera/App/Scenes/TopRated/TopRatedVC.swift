@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TopRatedVC: BaseViewController<TopRatedVM> {
+class TopRatedVC: BaseViewController<NowPlayingAndTopRatedVM> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
