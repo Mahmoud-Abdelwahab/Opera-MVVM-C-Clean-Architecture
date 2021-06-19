@@ -41,6 +41,11 @@
 		A749E235267DD73800D47FA3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E233267DD73800D47FA3 /* MovieCell.swift */; };
 		A749E236267DD73800D47FA3 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E234267DD73800D47FA3 /* MovieCell.xib */; };
 		A749E238267DD9B800D47FA3 /* MovieCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E237267DD9B800D47FA3 /* MovieCellVM.swift */; };
+		A749E240267DEA3F00D47FA3 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E23B267DEA3F00D47FA3 /* Page.swift */; };
+		A749E241267DEA3F00D47FA3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E23C267DEA3F00D47FA3 /* AppError.swift */; };
+		A749E242267DEA3F00D47FA3 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E23D267DEA3F00D47FA3 /* MovieDetails.swift */; };
+		A749E243267DEA3F00D47FA3 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E23E267DEA3F00D47FA3 /* Genre.swift */; };
+		A749E244267DEA3F00D47FA3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E23F267DEA3F00D47FA3 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +80,11 @@
 		A749E233267DD73800D47FA3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		A749E234267DD73800D47FA3 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		A749E237267DD9B800D47FA3 /* MovieCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellVM.swift; sourceTree = "<group>"; };
+		A749E23B267DEA3F00D47FA3 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		A749E23C267DEA3F00D47FA3 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		A749E23D267DEA3F00D47FA3 /* MovieDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		A749E23E267DEA3F00D47FA3 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		A749E23F267DEA3F00D47FA3 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +251,11 @@
 		A749E1F9267B9E3600D47FA3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A749E23C267DEA3F00D47FA3 /* AppError.swift */,
+				A749E23E267DEA3F00D47FA3 /* Genre.swift */,
+				A749E23F267DEA3F00D47FA3 /* Movie.swift */,
+				A749E23D267DEA3F00D47FA3 /* MovieDetails.swift */,
+				A749E23B267DEA3F00D47FA3 /* Page.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -436,12 +451,15 @@
 				A749E21E267CC3C000D47FA3 /* BaseViewController.swift in Sources */,
 				A749E211267CC2C500D47FA3 /* TopRatedVC.swift in Sources */,
 				A749E20D267CC29C00D47FA3 /* NowPlayingAndTopRatedVM.swift in Sources */,
+				A749E242267DEA3F00D47FA3 /* MovieDetails.swift in Sources */,
 				A749E225267D54DC00D47FA3 /* NowPalyingUseCase.swift in Sources */,
 				A749E22B267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift in Sources */,
 				A749E227267D54F700D47FA3 /* TopRatedUseCase.swift in Sources */,
 				A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */,
 				A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */,
+				A749E243267DEA3F00D47FA3 /* Genre.swift in Sources */,
 				A749E235267DD73800D47FA3 /* MovieCell.swift in Sources */,
+				A749E244267DEA3F00D47FA3 /* Movie.swift in Sources */,
 				A749E231267D68B400D47FA3 /* TextyTabBarItem.swift in Sources */,
 				A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */,
 				A749E223267D4FEE00D47FA3 /* TextyTabBarController.swift in Sources */,
@@ -452,6 +470,8 @@
 				A749E216267CC2EB00D47FA3 /* SearchVC.swift in Sources */,
 				A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */,
 				A749E20A267CC29000D47FA3 /* NowPlayingVC.swift in Sources */,
+				A749E240267DEA3F00D47FA3 /* Page.swift in Sources */,
+				A749E241267DEA3F00D47FA3 /* AppError.swift in Sources */,
 				A749E219267CC2FA00D47FA3 /* SearchVM.swift in Sources */,
 				A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */,
 				A749E229267D550800D47FA3 /* SearchUseCase.swift in Sources */,
