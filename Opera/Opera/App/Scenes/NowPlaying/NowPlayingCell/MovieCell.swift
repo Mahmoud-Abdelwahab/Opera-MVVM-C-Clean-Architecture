@@ -1,5 +1,5 @@
 //
-//  NowPlayingCell.swift
+//  MovieCell.swift
 //  Opera
 //
 //  Created by Mahmoud Abdul-Wahab on 19/06/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NowPlayingCell: UITableViewCell {
+class MovieCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
