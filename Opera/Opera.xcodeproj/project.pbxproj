@@ -40,6 +40,8 @@
 		A749E22D267D5FB800D47FA3 /* NowPlayingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E22C267D5FB800D47FA3 /* NowPlayingCoordinator.swift */; };
 		A749E22F267D5FC800D47FA3 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E22E267D5FC800D47FA3 /* SearchCoordinator.swift */; };
 		A749E231267D68B400D47FA3 /* TextyTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E230267D68B400D47FA3 /* TextyTabBarItem.swift */; };
+		A749E235267DD73800D47FA3 /* NowPlayingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E233267DD73800D47FA3 /* NowPlayingCell.swift */; };
+		A749E236267DD73800D47FA3 /* NowPlayingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E234267DD73800D47FA3 /* NowPlayingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		A749E22C267D5FB800D47FA3 /* NowPlayingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCoordinator.swift; sourceTree = "<group>"; };
 		A749E22E267D5FC800D47FA3 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		A749E230267D68B400D47FA3 /* TextyTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextyTabBarItem.swift; sourceTree = "<group>"; };
+		A749E233267DD73800D47FA3 /* NowPlayingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCell.swift; sourceTree = "<group>"; };
+		A749E234267DD73800D47FA3 /* NowPlayingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,9 +215,9 @@
 		A749E1F6267B9D3D00D47FA3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A749E213267CC2CE00D47FA3 /* Search */,
-				A749E20E267CC2A400D47FA3 /* TopRated */,
 				A749E207267CC24B00D47FA3 /* NowPlaying */,
+				A749E20E267CC2A400D47FA3 /* TopRated */,
+				A749E213267CC2CE00D47FA3 /* Search */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -274,6 +278,7 @@
 		A749E207267CC24B00D47FA3 /* NowPlaying */ = {
 			isa = PBXGroup;
 			children = (
+				A749E232267DD6F700D47FA3 /* NowPlayingCell */,
 				A749E208267CC29000D47FA3 /* NowPlayingVC.swift */,
 				A749E20C267CC29C00D47FA3 /* NowPlayingVM.swift */,
 				A749E209267CC29000D47FA3 /* NowPlayingVC.xib */,
@@ -317,6 +322,15 @@
 				A749E230267D68B400D47FA3 /* TextyTabBarItem.swift */,
 			);
 			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		A749E232267DD6F700D47FA3 /* NowPlayingCell */ = {
+			isa = PBXGroup;
+			children = (
+				A749E233267DD73800D47FA3 /* NowPlayingCell.swift */,
+				A749E234267DD73800D47FA3 /* NowPlayingCell.xib */,
+			);
+			path = NowPlayingCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +409,7 @@
 				A749E20B267CC29000D47FA3 /* NowPlayingVC.xib in Resources */,
 				A749E212267CC2C500D47FA3 /* TopRatedVC.xib in Resources */,
 				A749E1D3267B95E700D47FA3 /* Main.storyboard in Resources */,
+				A749E236267DD73800D47FA3 /* NowPlayingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +429,7 @@
 				A749E22D267D5FB800D47FA3 /* NowPlayingCoordinator.swift in Sources */,
 				A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */,
 				A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */,
+				A749E235267DD73800D47FA3 /* NowPlayingCell.swift in Sources */,
 				A749E231267D68B400D47FA3 /* TextyTabBarItem.swift in Sources */,
 				A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */,
 				A749E223267D4FEE00D47FA3 /* TextyTabBarController.swift in Sources */,
