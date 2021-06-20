@@ -20,5 +20,9 @@ class MovieRepositoryImp: MoviesRepository {
         remoteMoviesDataSource.getTopRated(page: page)
     }
     
+    func getMovieDetails(id: Int) -> Observable<MovieDetails> {
+        remoteMoviesDataSource.getMovieDetails(id: id)
+    }
+    
     
 }

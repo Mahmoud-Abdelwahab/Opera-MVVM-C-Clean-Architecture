@@ -11,4 +11,5 @@ import RxSwift
 protocol  MoviesRepository {
     func getNowPlaying(page: Int)->Observable<Page<Movie>>
     func getTopRated(page: Int)->Observable<Page<Movie>>
+    func getMovieDetails(id: Int)->Observable<MovieDetails>
 }
