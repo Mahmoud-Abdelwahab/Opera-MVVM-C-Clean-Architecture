@@ -1,8 +1,7 @@
 //
 //  Page.swift
-//  Cima+
 //
-//  Created by Kerolles Roshdi on 3/31/21.
+//  Created by Mahmoud Abdul-Wahab on 18/06/2021.
 //
 
 import Foundation
