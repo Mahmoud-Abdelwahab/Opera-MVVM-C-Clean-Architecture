@@ -21,12 +21,15 @@ class NowPlayingAndTopRatedVM: ViewModel {
         let viewDidload     : AnyObserver<Void>
         let showMovieDetails: AnyObserver<Int>
         let loadMoreMovies  : AnyObserver<Void>
+        let selectedMovie: AnyObserver<Int>
     }
     
     // MARK: - Input Private properties
     private let viewDidLoadSubject         = PublishSubject<Void>()
     private let showMovieDetailsTrigger    = PublishSubject<Int>()
     private let loadMoreMoviesTrigger      = PublishSubject<Void>()
+    private let selectedMovieSubject       = PublishSubject<Int>()
+
     // MARK: - Outputs
     let output: Output
     
@@ -52,7 +55,7 @@ class NowPlayingAndTopRatedVM: ViewModel {
         self.useCase = useCase
         
         // MARK: Inputs observables
-        input = Input(viewDidload: viewDidLoadSubject.asObserver(), showMovieDetails: showMovieDetailsTrigger.asObserver(), loadMoreMovies: loadMoreMoviesTrigger.asObserver() )
+        input = Input(viewDidload: viewDidLoadSubject.asObserver(), showMovieDetails: showMovieDetailsTrigger.asObserver(), loadMoreMovies: loadMoreMoviesTrigger.asObserver(), selectedMovie: selectedMovieSubject.asObserver() )
         
         // MARK: outputs drivers
         
@@ -77,6 +80,14 @@ class NowPlayingAndTopRatedVM: ViewModel {
                     break
                 }
             }).disposed(by: disposeBag)
+        
+        selectedMovieSubject.subscribe(onNext: {[weak self] in
+            guard let self = self else {return}
+            self.router.rx.trigger(.movieDetails(id: id))
+        }).disposed(by: disposeBag)
+        
+        
+      
         
     }
     

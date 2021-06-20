@@ -55,6 +55,9 @@
 		A749E257267F42A800D47FA3 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E256267F42A800D47FA3 /* MoviesService.swift */; };
 		A749E259267F46F100D47FA3 /* RxMoya+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E258267F46F100D47FA3 /* RxMoya+Ex.swift */; };
 		A749E25B267F492B00D47FA3 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E25A267F492B00D47FA3 /* String+Ex.swift */; };
+		A749E25F267F5F2E00D47FA3 /* MovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E25D267F5F2E00D47FA3 /* MovieVC.swift */; };
+		A749E260267F5F2E00D47FA3 /* MovieVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E25E267F5F2E00D47FA3 /* MovieVC.xib */; };
+		A749E262267F5F3C00D47FA3 /* MovieVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E261267F5F3C00D47FA3 /* MovieVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +105,9 @@
 		A749E256267F42A800D47FA3 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		A749E258267F46F100D47FA3 /* RxMoya+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxMoya+Ex.swift"; sourceTree = "<group>"; };
 		A749E25A267F492B00D47FA3 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
+		A749E25D267F5F2E00D47FA3 /* MovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVC.swift; sourceTree = "<group>"; };
+		A749E25E267F5F2E00D47FA3 /* MovieVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieVC.xib; sourceTree = "<group>"; };
+		A749E261267F5F3C00D47FA3 /* MovieVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +252,7 @@
 				A749E207267CC24B00D47FA3 /* NowPlaying */,
 				A749E20E267CC2A400D47FA3 /* TopRated */,
 				A749E213267CC2CE00D47FA3 /* Search */,
+				A749E25C267F5EB600D47FA3 /* MovieDetails */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -403,6 +410,16 @@
 			path = NetworkServices;
 			sourceTree = "<group>";
 		};
+		A749E25C267F5EB600D47FA3 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A749E25D267F5F2E00D47FA3 /* MovieVC.swift */,
+				A749E261267F5F3C00D47FA3 /* MovieVM.swift */,
+				A749E25E267F5F2E00D47FA3 /* MovieVC.xib */,
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,6 +497,7 @@
 				A749E217267CC2EB00D47FA3 /* SearchVC.xib in Resources */,
 				A749E20B267CC29000D47FA3 /* NowPlayingVC.xib in Resources */,
 				A749E212267CC2C500D47FA3 /* TopRatedVC.xib in Resources */,
+				A749E260267F5F2E00D47FA3 /* MovieVC.xib in Resources */,
 				A749E1D3267B95E700D47FA3 /* Main.storyboard in Resources */,
 				A749E236267DD73800D47FA3 /* MovieCell.xib in Resources */,
 			);
@@ -503,6 +521,7 @@
 				A749E22B267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift in Sources */,
 				A749E250267F40C200D47FA3 /* MovieRepositoryImp.swift in Sources */,
 				A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */,
+				A749E262267F5F3C00D47FA3 /* MovieVM.swift in Sources */,
 				A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */,
 				A749E252267F415F00D47FA3 /* MoviesRemoteDataSource.swift in Sources */,
 				A749E243267DEA3F00D47FA3 /* Genre.swift in Sources */,
@@ -525,6 +544,7 @@
 				A749E241267DEA3F00D47FA3 /* AppError.swift in Sources */,
 				A749E257267F42A800D47FA3 /* MoviesService.swift in Sources */,
 				A749E219267CC2FA00D47FA3 /* SearchVM.swift in Sources */,
+				A749E25F267F5F2E00D47FA3 /* MovieVC.swift in Sources */,
 				A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */,
 				A749E229267D550800D47FA3 /* SearchUseCase.swift in Sources */,
 			);

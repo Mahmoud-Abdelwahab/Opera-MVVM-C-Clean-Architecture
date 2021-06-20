@@ -10,6 +10,7 @@ import XCoordinator
 enum NowPlayingAndTopRatedRoute: Route {
     case topRated
     case nowPlaying
+    case details(Int)
 }
 
 class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRatedRoute> {
@@ -33,6 +34,9 @@ class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRa
             let topRatedVC = TopRatedVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter, useCase: MovieListUseCase(movieRepsitory: MovieRepositoryImp(), browsing: .topRated)))
             topRatedVC.title = "Top Rated"
             return .push(topRatedVC)
+            
+        case .details(let id):
+            
         }
     }
 }
