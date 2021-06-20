@@ -8,7 +8,7 @@
 import Foundation
 
 import RxSwift
-//import RxCocoa
+import RxCocoa
 import XCoordinator
 import XCoordinatorRx
 
@@ -31,12 +31,11 @@ class NowPlayingAndTopRatedVM: ViewModel {
     let output: Output
     
     struct Output {
-     
+        let moviesCellsVMs: Driver<[MovieCellVM]>
     }
     
-    
     // MARK: - Output Private properties
-  
+  private let moviesCellsVMsSubject = PublishSubject<[MovieCellVM]>()
     
     
     // MARK: - Private properties
@@ -54,9 +53,7 @@ class NowPlayingAndTopRatedVM: ViewModel {
         
         // MARK: outputs drivers
         
-        output = Output(
-           
-        )
+        output = Output( moviesCellsVMs:moviesCellsVMsSubject.asDriver(onErrorJustReturn: []) )
         
     }
     
