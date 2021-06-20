@@ -18,12 +18,15 @@ class NowPlayingAndTopRatedVM: ViewModel {
     let input: Input
     
     struct Input {
-      
+        let viewDidload     : AnyObserver<Void>
+        let showMovieDetails: AnyObserver<Int>
+        let loadMoreMovies  : AnyObserver<Void>
     }
     
     // MARK: - Input Private properties
- 
-    
+    private let viewDidLoadSubject         = PublishSubject<Void>()
+    private let showMovieDetailsTrigger    = PublishSubject<Int>()
+    private let loadMoreMoviesTrigger      = PublishSubject<Void>()
     // MARK: - Outputs
     let output: Output
     
@@ -47,9 +50,7 @@ class NowPlayingAndTopRatedVM: ViewModel {
         self.router = router
     //    self.useCase = useCase
         
-        input = Input(
-           
-        )
+        input = Input(viewDidload: viewDidLoadSubject.asObserver(), showMovieDetails: showMovieDetailsTrigger.asObserver(), loadMoreMovies: loadMoreMoviesTrigger.asObserver() )
         
         // MARK: outputs drivers
         
