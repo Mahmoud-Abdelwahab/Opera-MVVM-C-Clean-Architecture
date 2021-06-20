@@ -6,14 +6,22 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 class NowPlayingVC: BaseViewController<NowPlayingAndTopRatedVM> {
 
-    @IBOutlet weak var nowPlayingTableVIew: UITableView!
+    @IBOutlet weak var nowPlayingTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       configureViewController()
     }
 
+}
+
+
+extension NowPlayingVC{
+    private func configureViewController(){
+        nowPlayingTableView.register(MovieCell.nib(), forCellReuseIdentifier: MovieCell.identifier)
+    }
 }

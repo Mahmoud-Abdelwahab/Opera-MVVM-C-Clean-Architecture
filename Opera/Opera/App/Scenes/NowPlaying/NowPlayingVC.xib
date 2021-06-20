@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NowPlayingVC" customModule="Opera" customModuleProvider="target">
             <connections>
-                <outlet property="nowPlayingTableVIew" destination="XDE-Jq-ZNh" id="6fW-OR-MEa"/>
+                <outlet property="nowPlayingTableView" destination="XDE-Jq-ZNh" id="6fW-OR-MEa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
