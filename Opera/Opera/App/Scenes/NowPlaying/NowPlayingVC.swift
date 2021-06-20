@@ -26,7 +26,7 @@ extension NowPlayingVC: UITableViewDelegate {
     private func configureViewController(){
         nowPlayingTableView.rx.setDelegate(self).disposed(by: disposeBag)
         nowPlayingTableView.register(MovieCell.nib(), forCellReuseIdentifier: MovieCell.identifier)
-        //  nowPlayingTableView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
+          nowPlayingTableView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
     }
     
     private func viewsBinding(){
@@ -43,10 +43,7 @@ extension NowPlayingVC: UITableViewDelegate {
             }
             .disposed(by: disposeBag)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
-    }
+  
 }
 
 

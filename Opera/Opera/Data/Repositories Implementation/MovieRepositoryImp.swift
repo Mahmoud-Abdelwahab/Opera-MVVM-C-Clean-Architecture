@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import RxSwift
 
 class MovieRepositoryImp: MoviesRepository {
     
-    let 
+    let  remoteMoviesDataSource = MoviesRemoteDataSource()
     
     func getNowPlaying(page: Int) -> Observable<Page<Movie>> {
-        <#code#>
+        remoteMoviesDataSource.getNowPlaying(page: page)
     }
     
     func getTopRated(page: Int) -> Observable<Page<Movie>> {
-        <#code#>
+        remoteMoviesDataSource.getTopRated(page: page)
     }
     
     

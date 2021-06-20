@@ -51,6 +51,10 @@
 		A749E24E267F3D7A00D47FA3 /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E24D267F3D7A00D47FA3 /* MoviesRepository.swift */; };
 		A749E250267F40C200D47FA3 /* MovieRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E24F267F40C200D47FA3 /* MovieRepositoryImp.swift */; };
 		A749E252267F415F00D47FA3 /* MoviesRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E251267F415F00D47FA3 /* MoviesRemoteDataSource.swift */; };
+		A749E255267F428500D47FA3 /* MoyaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E254267F428500D47FA3 /* MoyaHelper.swift */; };
+		A749E257267F42A800D47FA3 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E256267F42A800D47FA3 /* MoviesService.swift */; };
+		A749E259267F46F100D47FA3 /* RxMoya+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E258267F46F100D47FA3 /* RxMoya+Ex.swift */; };
+		A749E25B267F492B00D47FA3 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E25A267F492B00D47FA3 /* String+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +98,10 @@
 		A749E24D267F3D7A00D47FA3 /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
 		A749E24F267F40C200D47FA3 /* MovieRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryImp.swift; sourceTree = "<group>"; };
 		A749E251267F415F00D47FA3 /* MoviesRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRemoteDataSource.swift; sourceTree = "<group>"; };
+		A749E254267F428500D47FA3 /* MoyaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaHelper.swift; sourceTree = "<group>"; };
+		A749E256267F42A800D47FA3 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
+		A749E258267F46F100D47FA3 /* RxMoya+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxMoya+Ex.swift"; sourceTree = "<group>"; };
+		A749E25A267F492B00D47FA3 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +212,7 @@
 		A749E1F3267B9D0700D47FA3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A749E204267CBE9B00D47FA3 /* Extentions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -220,7 +229,6 @@
 		A749E1F5267B9D2E00D47FA3 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				A749E204267CBE9B00D47FA3 /* Extentions */,
 				A749E1FE267C28CF00D47FA3 /* LaunchCoordinatore.swift */,
 				A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */,
 				A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */,
@@ -299,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				A749E205267CBEB600D47FA3 /* Transition+Ex.swift */,
+				A749E258267F46F100D47FA3 /* RxMoya+Ex.swift */,
+				A749E25A267F492B00D47FA3 /* String+Ex.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -387,6 +397,8 @@
 		A749E253267F41B500D47FA3 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				A749E254267F428500D47FA3 /* MoyaHelper.swift */,
+				A749E256267F42A800D47FA3 /* MoviesService.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -481,10 +493,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A749E21E267CC3C000D47FA3 /* BaseViewController.swift in Sources */,
+				A749E255267F428500D47FA3 /* MoyaHelper.swift in Sources */,
 				A749E24A267F2C8500D47FA3 /* DesignSystem.swift in Sources */,
 				A749E211267CC2C500D47FA3 /* TopRatedVC.swift in Sources */,
 				A749E20D267CC29C00D47FA3 /* NowPlayingAndTopRatedVM.swift in Sources */,
 				A749E242267DEA3F00D47FA3 /* MovieDetails.swift in Sources */,
+				A749E259267F46F100D47FA3 /* RxMoya+Ex.swift in Sources */,
 				A749E225267D54DC00D47FA3 /* MovieListUseCase.swift in Sources */,
 				A749E22B267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift in Sources */,
 				A749E250267F40C200D47FA3 /* MovieRepositoryImp.swift in Sources */,
@@ -494,6 +508,7 @@
 				A749E243267DEA3F00D47FA3 /* Genre.swift in Sources */,
 				A749E24E267F3D7A00D47FA3 /* MoviesRepository.swift in Sources */,
 				A749E235267DD73800D47FA3 /* MovieCell.swift in Sources */,
+				A749E25B267F492B00D47FA3 /* String+Ex.swift in Sources */,
 				A749E244267DEA3F00D47FA3 /* Movie.swift in Sources */,
 				A749E231267D68B400D47FA3 /* TextyTabBarItem.swift in Sources */,
 				A749E201267C29DF00D47FA3 /* MainTabbarCoordinator.swift in Sources */,
@@ -508,6 +523,7 @@
 				A749E20A267CC29000D47FA3 /* NowPlayingVC.swift in Sources */,
 				A749E240267DEA3F00D47FA3 /* Page.swift in Sources */,
 				A749E241267DEA3F00D47FA3 /* AppError.swift in Sources */,
+				A749E257267F42A800D47FA3 /* MoviesService.swift in Sources */,
 				A749E219267CC2FA00D47FA3 /* SearchVM.swift in Sources */,
 				A749E206267CBEB700D47FA3 /* Transition+Ex.swift in Sources */,
 				A749E229267D550800D47FA3 /* SearchUseCase.swift in Sources */,

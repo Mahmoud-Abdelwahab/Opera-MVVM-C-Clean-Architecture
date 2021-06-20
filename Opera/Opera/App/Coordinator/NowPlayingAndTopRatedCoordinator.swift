@@ -25,12 +25,12 @@ class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRa
     override func prepareTransition(for route: NowPlayingAndTopRatedRoute) -> NavigationTransition {
         switch route {
         case .nowPlaying:
-            let nowPlayingVC = NowPlayingVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter))
+            let nowPlayingVC = NowPlayingVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter, useCase: MovieListUseCase(movieRepsitory: MovieRepositoryImp(), browsing: .nowPlaying)))
             nowPlayingVC.title = "Now Playing"
             return .push(nowPlayingVC)
             
         case .topRated:
-            let topRatedVC = TopRatedVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter))
+            let topRatedVC = TopRatedVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter, useCase: MovieListUseCase(movieRepsitory: MovieRepositoryImp(), browsing: .topRated)))
             topRatedVC.title = "Top Rated"
             return .push(topRatedVC)
         }

@@ -19,7 +19,6 @@ class MainTabbarCoordinator: TabBarCoordinator<MainTabbarRoute> {
     // MARK: Initialization
     
     init() {
-//        let initialRoute = con.is_login() ? AppRoute.main : AppRoute.auth
         let customTabBar = TextyTabBarController()
         
         let nowPlayingCoordinator = NowPlayingAndTopRatedCoordinator(router: .nowPlaying)
