@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchVC" customModule="Opera" customModuleProvider="target">
             <connections>
                 <outlet property="movieTableView" destination="h5G-F0-LIf" id="IKm-QS-FKK"/>
+                <outlet property="noMovieLable" destination="8wQ-Pj-qh1" id="upk-uv-qSi"/>
                 <outlet property="searchTF" destination="SeE-cd-zrQ" id="4ua-2z-JAo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btV-Jc-MpQ">
-                    <rect key="frame" x="20" y="37" width="374" height="50"/>
+                    <rect key="frame" x="20" y="97" width="374" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mAX-Wy-FAn">
                             <rect key="frame" x="20" y="5" width="349" height="40"/>
@@ -63,7 +64,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-F0-LIf">
-                    <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                    <rect key="frame" x="0.0" y="162" width="414" height="700"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Movie Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wQ-Pj-qh1">
@@ -74,10 +75,10 @@
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="8wQ-Pj-qh1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0jg-HM-4CA"/>
-                <constraint firstItem="btV-Jc-MpQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37" id="Sg3-am-bB0"/>
+                <constraint firstItem="btV-Jc-MpQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="97" id="Sg3-am-bB0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="h5G-F0-LIf" secondAttribute="bottom" id="W6R-Px-MJy"/>
                 <constraint firstItem="8wQ-Pj-qh1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="a2a-ZW-cdf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="btV-Jc-MpQ" secondAttribute="trailing" constant="20" id="mFJ-BX-09J"/>
