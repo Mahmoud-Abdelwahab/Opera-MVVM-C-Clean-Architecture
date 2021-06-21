@@ -24,5 +24,9 @@ class MovieRepositoryImp: MoviesRepository {
         remoteMoviesDataSource.getMovieDetails(id: id)
     }
     
+    func searchForMovie(searchText: String, page: Int) -> Observable<Page<Movie>> {
+        remoteMoviesDataSource.searchWith(searchText, page: page)
+    }
+    
     
 }

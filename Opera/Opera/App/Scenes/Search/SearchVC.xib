@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchVC" customModule="Opera" customModuleProvider="target">
             <connections>
+                <outlet property="movieTableView" destination="h5G-F0-LIf" id="IKm-QS-FKK"/>
+                <outlet property="searchTF" destination="SeE-cd-zrQ" id="4ua-2z-JAo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,14 +21,84 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btV-Jc-MpQ">
+                    <rect key="frame" x="20" y="37" width="374" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mAX-Wy-FAn">
+                            <rect key="frame" x="20" y="5" width="349" height="40"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeE-cd-zrQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="299" height="40"/>
+                                    <color key="tintColor" name="search"/>
+                                    <color key="textColor" name="title"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tj-0f-yrb">
+                                    <rect key="frame" x="309" y="0.0" width="40" height="40"/>
+                                    <color key="backgroundColor" name="search"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="9Tj-0f-yrb" secondAttribute="height" multiplier="1:1" id="nnI-6V-tYp"/>
+                                    </constraints>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="icon-search"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCapsule" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="mAX-Wy-FAn" firstAttribute="leading" secondItem="btV-Jc-MpQ" secondAttribute="leading" constant="20" id="00A-8k-Yz8"/>
+                        <constraint firstAttribute="height" constant="50" id="6UB-p8-zwe"/>
+                        <constraint firstAttribute="trailing" secondItem="mAX-Wy-FAn" secondAttribute="trailing" constant="5" id="NYr-NH-81x"/>
+                        <constraint firstItem="mAX-Wy-FAn" firstAttribute="top" secondItem="btV-Jc-MpQ" secondAttribute="top" constant="5" id="hJA-rV-7sp"/>
+                        <constraint firstAttribute="bottom" secondItem="mAX-Wy-FAn" secondAttribute="bottom" constant="5" id="yhQ-Gb-ZWr"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCapsule" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-F0-LIf">
+                    <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Movie Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wQ-Pj-qh1">
+                    <rect key="frame" x="113" y="436.5" width="188.5" height="23"/>
+                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
-            <point key="canvasLocation" x="97" y="97"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8wQ-Pj-qh1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0jg-HM-4CA"/>
+                <constraint firstItem="btV-Jc-MpQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37" id="Sg3-am-bB0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="h5G-F0-LIf" secondAttribute="bottom" id="W6R-Px-MJy"/>
+                <constraint firstItem="8wQ-Pj-qh1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="a2a-ZW-cdf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="btV-Jc-MpQ" secondAttribute="trailing" constant="20" id="mFJ-BX-09J"/>
+                <constraint firstItem="btV-Jc-MpQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="nsh-R9-2DT"/>
+                <constraint firstItem="h5G-F0-LIf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pBn-2b-YcT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h5G-F0-LIf" secondAttribute="trailing" id="woH-ZI-wLW"/>
+                <constraint firstItem="h5G-F0-LIf" firstAttribute="top" secondItem="btV-Jc-MpQ" secondAttribute="bottom" constant="15" id="xYH-GH-Xpb"/>
+            </constraints>
+            <point key="canvasLocation" x="95.652173913043484" y="96.428571428571431"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="icon-search" width="20.5" height="20.5"/>
+        <namedColor name="search">
+            <color red="0.3919999897480011" green="0.12200000137090683" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="title">
+            <color red="0.22699999809265137" green="0.22699999809265137" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

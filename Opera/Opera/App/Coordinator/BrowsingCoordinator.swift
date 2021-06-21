@@ -38,7 +38,7 @@ class BrowsingCoordinator: NavigationCoordinator<BrowsingRoute> {
             return .push(topRatedVC)
             
         case .search:
-            let topRatedVC = SearchVC(viewModel: SearchVM(router: weakRouter))
+            let topRatedVC = SearchVC(viewModel: SearchVM(router: weakRouter, useCase: SearchUseCase(movieRepsitory: MovieRepositoryImp())))
             topRatedVC.title = "Top Rated"
             return .push(topRatedVC)
             

@@ -29,19 +29,19 @@ class MoviesRemoteDataSource{
             .asObservable()
     }
     
-    func searchWith(_ text: String, page: Int) -> Observable<Page<Movie>> {
-        moviesProvider.rx
-            .request(.search(text, page: page))
-            .catchAppError()
-            .map(Page<Movie>.self)
-            .asObservable()
-    }
-    
     func getMovieDetails(id: Int) -> Observable<MovieDetails> {
         moviesProvider.rx
             .request(.movieDetails(id: id))
             .catchAppError()
             .map(MovieDetails.self)
+            .asObservable()
+    }
+    
+    func searchWith(_ text: String, page: Int) -> Observable<Page<Movie>> {
+        moviesProvider.rx
+            .request(.search(text, page: page))
+            .catchAppError()
+            .map(Page<Movie>.self)
             .asObservable()
     }
     
