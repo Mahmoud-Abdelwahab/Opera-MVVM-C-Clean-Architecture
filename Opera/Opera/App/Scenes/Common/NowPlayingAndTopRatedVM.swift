@@ -35,11 +35,14 @@ class NowPlayingAndTopRatedVM: ViewModel {
     
     struct Output {
         let moviesCellsVMs: Driver<[MovieCellVM]>
+        let isLoadingNextPage: Driver<Bool>
+
     }
     
     // MARK: - Output Private properties
-  private let moviesCellsVMsSubject = PublishSubject<[MovieCellVM]>()
-    
+    private let moviesCellsVMsSubject = PublishSubject<[MovieCellVM]>()
+    private let isLoadingNextPageSubject = PublishSubject<Bool>()
+
     
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
@@ -59,17 +62,20 @@ class NowPlayingAndTopRatedVM: ViewModel {
         
         // MARK: outputs drivers
         
-        output = Output( moviesCellsVMs:moviesCellsVMsSubject.asDriver(onErrorJustReturn: []) )
+        output = Output( moviesCellsVMs:moviesCellsVMsSubject.asDriver(onErrorJustReturn: []), isLoadingNextPage: isLoadingNextPageSubject.asDriver(onErrorJustReturn: false) )
+        
         
         
         viewDidLoadSubject
             .flatMap{[weak self] _ -> Observable<Event<Page<Movie>>> in
                     guard let self = self else { return .error(AppError.networkError) }
+                self.isLoadingNextPageSubject.onNext(true)
                     return self.useCase.getMovies(page: self.currentPage).materialize()
             }
             .retry(3)
             .subscribe(onNext:{ [weak self]  event in
                 guard let self = self else {return}
+                self.isLoadingNextPageSubject.onNext(false)
                 switch event{
                 case .next(let page):
                     self.moviesCellsVMs += self.buildMoviesCellsVMs(page.results)

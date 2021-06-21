@@ -19,14 +19,13 @@ class SearchVM: ViewModel {
     
     struct Input {
         let searchText: AnyObserver<String>
-        //        let loadNextPage: AnyObserver<Void>
+       // let isLoadNextPage: AnyObserver<Void>
         let selectedMovie: AnyObserver<MovieCellVM>
     }
     
     // MARK: - Input Private properties
     private let searchTextSubject = PublishSubject<String>()
-
-    //    private let loadNextPageSubject = PublishSubject<Void>()
+    //private let isLoadNextPageSubject = PublishSubject<Void>()
     private let selectedMovieSubject = PublishSubject<MovieCellVM>()
     
     // MARK: - Outputs
@@ -36,7 +35,7 @@ class SearchVM: ViewModel {
         let moviesCellsVMs: Driver<[MovieCellVM]>
         let noMovieLableIsHidden: Driver<Bool>
         //        let isLoading: Driver<Bool>
-        //        let isLoadingNextPage: Driver<Bool>
+        let isLoadingNextPage: Driver<Bool>
         let error: Driver<AppError?>
     }
     
@@ -44,7 +43,7 @@ class SearchVM: ViewModel {
     private let moviesCellsVMsSubject = PublishSubject<[MovieCellVM]>()
     private let noMovieLableIsHiddenSubject = BehaviorSubject<Bool>(value: false)
     //    private let isLoadingSubject = PublishSubject<Bool>()
-    //    private let isLoadingNextPageSubject = PublishSubject<Bool>()
+    private let isLoadingNextPageSubject = PublishSubject<Bool>()
     private let errorSubject = PublishSubject<AppError?>()
     
     private let imageBaseURL = "https://image.tmdb.org/t/p/w500/"
@@ -69,7 +68,7 @@ class SearchVM: ViewModel {
         // MARK: outputs drivers
         
         output = Output(
-            moviesCellsVMs: moviesCellsVMsSubject.asDriver(onErrorJustReturn: []), noMovieLableIsHidden: noMovieLableIsHiddenSubject.asDriver(onErrorJustReturn: false),
+            moviesCellsVMs: moviesCellsVMsSubject.asDriver(onErrorJustReturn: []), noMovieLableIsHidden: noMovieLableIsHiddenSubject.asDriver(onErrorJustReturn: false), isLoadingNextPage: isLoadingNextPageSubject.asDriver(onErrorJustReturn: false),
             error: errorSubject.asDriver(onErrorJustReturn: nil)
         )
         
@@ -77,7 +76,7 @@ class SearchVM: ViewModel {
             guard let self = self else {return}
             self.noMovieLableIsHiddenSubject.onNext(!$0.isEmpty)
         }).disposed(by: disposeBag)
-
+        
         searchTextSubject
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
@@ -91,10 +90,12 @@ class SearchVM: ViewModel {
             .filter { !$0.isEmpty }
             .flatMap { [weak self] text -> Observable<Event<Page<Movie>>> in
                 guard let self = self else { return .error(AppError.networkError) }
+                self.isLoadingNextPageSubject.onNext(true)
                 return self.useCase.searchForMovie(searchText: text, page: self.currentPage).materialize()
             }
             .subscribe(onNext: { [weak self] event in
                 guard let self = self else { return }
+                self.isLoadingNextPageSubject.onNext(false)
                 switch event {
                 case .next(let page):
                     self.moviesCellsVMs = self.buildMoviesCellsVMs(page.results)

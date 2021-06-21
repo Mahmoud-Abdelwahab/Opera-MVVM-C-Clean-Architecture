@@ -28,7 +28,7 @@ class MainTabbarCoordinator: TabBarCoordinator<MainTabbarRoute> {
 
         let topRatedCoordinator   = BrowsingCoordinator(router: .topRated)
         let topRatedBarItem = TextyTabBarItem(title: "Top Rated", image: #imageLiteral(resourceName: "icon-like"), tag: 1)
-        topRatedBarItem.color     = #colorLiteral(red: 0.03259301999, green: 1, blue: 0.2817582111, alpha: 1)
+        topRatedBarItem.color     = #colorLiteral(red: 0, green: 0.8076593308, blue: 0.648778072, alpha: 1)
         topRatedCoordinator.rootViewController.tabBarItem = topRatedBarItem
         
         let searchCoordinator     = BrowsingCoordinator(router: .search)

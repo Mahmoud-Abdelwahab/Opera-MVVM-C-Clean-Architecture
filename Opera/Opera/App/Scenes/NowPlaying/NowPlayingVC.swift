@@ -41,6 +41,10 @@ extension NowPlayingVC: UITableViewDelegate {
         
         //Outputs
         
+        viewModel.output.isLoadingNextPage
+            .drive(nextPageLoadingIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
         viewModel?.output.moviesCellsVMs
             .drive(nowPlayingTableView.rx.items(cellIdentifier: MovieCell.identifier,cellType: MovieCell.self)){_,vm,cell in
                 cell.viewModel = vm

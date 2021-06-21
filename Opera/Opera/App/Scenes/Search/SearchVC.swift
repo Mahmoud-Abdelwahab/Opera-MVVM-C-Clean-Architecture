@@ -27,6 +27,7 @@ extension SearchVC{
         // tableview setup
         movieTableView.register(MovieCell.nib(), forCellReuseIdentifier: MovieCell.identifier)
         movieTableView.contentInset = .init(top: 20, left: 0, bottom: 100, right: 0)
+        movieTableView.tableFooterView = nextPageLoadingIndicator
     }
     
     private func bindingViews() {
@@ -46,6 +47,10 @@ extension SearchVC{
         
         viewModel.output.noMovieLableIsHidden
             .drive(noMovieLable.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.isLoadingNextPage
+            .drive(nextPageLoadingIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
         viewModel.output.moviesCellsVMs

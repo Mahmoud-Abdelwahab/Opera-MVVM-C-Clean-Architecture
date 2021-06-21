@@ -38,7 +38,7 @@
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tj-0f-yrb">
                                     <rect key="frame" x="309" y="0.0" width="40" height="40"/>
-                                    <color key="backgroundColor" name="search"/>
+                                    <color key="backgroundColor" red="0.30980392156862746" green="0.66274509803921566" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="9Tj-0f-yrb" secondAttribute="height" multiplier="1:1" id="nnI-6V-tYp"/>
                                     </constraints>
