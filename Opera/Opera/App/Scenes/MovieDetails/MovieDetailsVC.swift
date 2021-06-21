@@ -8,7 +8,7 @@
 import UIKit
 
 class MovieDetailsVC: BaseViewController<MovieDetailsVM> {
-
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -18,7 +18,6 @@ class MovieDetailsVC: BaseViewController<MovieDetailsVM> {
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var genresCollectionView: UICollectionView!
-    
     @IBOutlet weak var overviewTextView: UITextView!
     
     private var genres: [String] = []
@@ -28,7 +27,7 @@ class MovieDetailsVC: BaseViewController<MovieDetailsVM> {
         setupCollectionView()
         bind()
     }
-
+    
     private func setupCollectionView() {
         // collectionView setup
         genresCollectionView.register(GenreCell.nib(), forCellWithReuseIdentifier: GenreCell.identifier)
@@ -39,7 +38,6 @@ class MovieDetailsVC: BaseViewController<MovieDetailsVM> {
     
     private func bind() {
         // outputs
-
         viewModel.output.backdropPath
             .drive(onNext: { [weak self] path in
                 guard let self = self else { return }
@@ -91,7 +89,7 @@ class MovieDetailsVC: BaseViewController<MovieDetailsVM> {
         closeButton.rx.tap
             .bind(to: viewModel.input.closeTapped)
             .disposed(by: disposeBag)
-
+        
     }
     
 }
@@ -104,7 +102,6 @@ extension MovieDetailsVC: UICollectionViewDelegateFlowLayout {
         let width = CGFloat(genreSize.width) + 25
         return .init(width: width, height: collectionView.bounds.height)
     }
-    
 }
 
 

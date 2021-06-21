@@ -88,6 +88,30 @@ class NowPlayingAndTopRatedVM: ViewModel {
             }).disposed(by: disposeBag)
         
   
+        loadMoreMoviesTrigger
+            .do(onNext:{[weak self] in
+                guard let self = self else {return}
+                self.currentPage += 1
+            })
+            .flatMap{[weak self] _ -> Observable<Event<Page<Movie>>> in
+                    guard let self = self else { return .error(AppError.networkError) }
+                self.isLoadingNextPageSubject.onNext(true)
+                    return self.useCase.getMovies(page: self.currentPage).materialize()
+            }
+            .subscribe(onNext:{ [weak self]  event in
+                guard let self = self else {return}
+                self.isLoadingNextPageSubject.onNext(false)
+                switch event{
+                case .next(let page):
+                    self.moviesCellsVMs += self.buildMoviesCellsVMs(page.results)
+                    self.moviesCellsVMsSubject.onNext(self.moviesCellsVMs)
+                case .error(let error):
+                    debugPrint("error getting now playing Movies: \(error)")
+               default:
+                    break
+                }
+            }).disposed(by: disposeBag)
+        
      selectedMovieSubject
             .flatMap { [unowned self] id in self.router.rx.trigger(.details(id)) }
             .subscribe()

@@ -12,7 +12,7 @@ import RxSwift
 
 class MoviesRemoteDataSource{
     let moviesProvider = MoyaProvider<MoviesService>()
-
+    
     func getNowPlaying(page: Int) -> Observable<Page<Movie>> {
         moviesProvider.rx
             .request(.nowPlaying(page: page))

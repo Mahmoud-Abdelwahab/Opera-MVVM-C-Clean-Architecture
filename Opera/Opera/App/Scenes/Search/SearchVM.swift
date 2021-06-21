@@ -19,14 +19,14 @@ class SearchVM: ViewModel {
     
     struct Input {
         let searchText: AnyObserver<String>
-       // let isLoadNextPage: AnyObserver<Void>
+        let loadMoreMovies  : AnyObserver<Void>
         let selectedMovie: AnyObserver<MovieCellVM>
     }
     
     // MARK: - Input Private properties
-    private let searchTextSubject = PublishSubject<String>()
-    //private let isLoadNextPageSubject = PublishSubject<Void>()
-    private let selectedMovieSubject = PublishSubject<MovieCellVM>()
+    private let searchTextSubject          = PublishSubject<String>()
+    private let loadMoreMoviesTrigger      = PublishSubject<Void>()
+    private let selectedMovieSubject       = PublishSubject<MovieCellVM>()
     
     // MARK: - Outputs
     let output: Output
@@ -34,7 +34,6 @@ class SearchVM: ViewModel {
     struct Output {
         let moviesCellsVMs: Driver<[MovieCellVM]>
         let noMovieLableIsHidden: Driver<Bool>
-        //        let isLoading: Driver<Bool>
         let isLoadingNextPage: Driver<Bool>
         let error: Driver<AppError?>
     }
@@ -42,7 +41,6 @@ class SearchVM: ViewModel {
     // MARK: - Output Private properties
     private let moviesCellsVMsSubject = PublishSubject<[MovieCellVM]>()
     private let noMovieLableIsHiddenSubject = BehaviorSubject<Bool>(value: false)
-    //    private let isLoadingSubject = PublishSubject<Bool>()
     private let isLoadingNextPageSubject = PublishSubject<Bool>()
     private let errorSubject = PublishSubject<AppError?>()
     
@@ -61,7 +59,7 @@ class SearchVM: ViewModel {
         self.useCase = useCase
         
         input = Input(
-            searchText: searchTextSubject.asObserver(),
+            searchText: searchTextSubject.asObserver(), loadMoreMovies: loadMoreMoviesTrigger.asObserver(),
             selectedMovie: selectedMovieSubject.asObserver()
         )
         
@@ -108,7 +106,38 @@ class SearchVM: ViewModel {
                 }
             })
             .disposed(by: disposeBag)
-   
+        
+        
+        loadMoreMoviesTrigger
+            .withLatestFrom(searchTextSubject)
+            .distinctUntilChanged()
+            .do(onNext:{ [weak self] text in
+                guard let self = self else {return}
+                self.currentPage += 1
+                self.errorSubject.onNext(nil)
+            })
+            .filter { !$0.isEmpty }
+            .flatMap { [weak self] text -> Observable<Event<Page<Movie>>> in
+                guard let self = self else { return .error(AppError.networkError) }
+                self.isLoadingNextPageSubject.onNext(true)
+                return self.useCase.searchForMovie(searchText: text, page: self.currentPage).materialize()
+            }
+            .subscribe(onNext: { [weak self] event in
+                guard let self = self else { return }
+                self.isLoadingNextPageSubject.onNext(false)
+                switch event {
+                case .next(let page):
+                    self.moviesCellsVMs = self.buildMoviesCellsVMs(page.results)
+                    self.moviesCellsVMsSubject.onNext(self.moviesCellsVMs)
+                case .error(let error):
+                    debugPrint("error getting now playing Movies: \(error)")
+                    self.errorSubject.onNext(error as? AppError ?? .with(message: error.localizedDescription))
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+        
         selectedMovieSubject
             .map { $0.id }
             .flatMap { [unowned self] id in self.router.rx.trigger(.details(id)) }
@@ -128,5 +157,4 @@ class SearchVM: ViewModel {
             )
         }
     }
-    
 }

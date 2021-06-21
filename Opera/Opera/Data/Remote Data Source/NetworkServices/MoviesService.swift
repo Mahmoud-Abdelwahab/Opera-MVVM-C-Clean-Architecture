@@ -78,5 +78,4 @@ extension MoviesService: TargetType {
     var headers: [String : String]? {
         nil
     }
-    
 }

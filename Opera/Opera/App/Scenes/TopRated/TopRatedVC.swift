@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 
 class TopRatedVC: BaseViewController<NowPlayingAndTopRatedVM> {
-
     
     @IBOutlet weak var topMoviesTableView: UITableView!
     
@@ -18,7 +17,6 @@ class TopRatedVC: BaseViewController<NowPlayingAndTopRatedVM> {
         configureViewController()
         viewsBinding()
     }
-    
 }
 
 
@@ -35,12 +33,22 @@ extension TopRatedVC: UITableViewDelegate {
         //Inputs
         viewModel.input.viewDidload.onNext(())
         
-        
         topMoviesTableView.rx
             .modelSelected(MovieCellVM.self)
             .map{$0.id}
             .bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
         
+        topMoviesTableView.rx
+            .contentOffset
+            .map{[weak self] _  in
+                guard let self = self else { return false }
+                return self.topMoviesTableView.isNearBottomEdge()
+            }
+            .distinctUntilChanged()
+            .filter{$0 == true}
+            .map{_ in ()}
+            .bind(to: viewModel.input.loadMoreMovies)
+            .disposed(by: disposeBag)
         //Outputs
         
         viewModel?.output.moviesCellsVMs
@@ -48,11 +56,7 @@ extension TopRatedVC: UITableViewDelegate {
                 cell.viewModel = vm
             }
             .disposed(by: disposeBag)
-        
-       
-        
     }
-  
 }
 
 

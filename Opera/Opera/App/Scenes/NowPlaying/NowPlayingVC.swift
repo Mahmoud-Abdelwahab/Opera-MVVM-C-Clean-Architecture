@@ -17,7 +17,6 @@ class NowPlayingVC: BaseViewController<NowPlayingAndTopRatedVM> {
         configureViewController()
         viewsBinding()
     }
-    
 }
 
 
@@ -26,7 +25,7 @@ extension NowPlayingVC: UITableViewDelegate {
     private func configureViewController(){
         nowPlayingTableView.rx.setDelegate(self).disposed(by: disposeBag)
         nowPlayingTableView.register(MovieCell.nib(), forCellReuseIdentifier: MovieCell.identifier)
-          nowPlayingTableView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
+        nowPlayingTableView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
     }
     
     private func viewsBinding(){
@@ -39,6 +38,17 @@ extension NowPlayingVC: UITableViewDelegate {
             .map{$0.id}
             .bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
         
+        nowPlayingTableView.rx
+            .contentOffset
+            .map{[weak self] _  in
+                guard let self = self else { return false }
+                return self.nowPlayingTableView.isNearBottomEdge()
+            }
+            .distinctUntilChanged()
+            .filter{$0 == true}
+            .map{_ in ()}
+            .bind(to: viewModel.input.loadMoreMovies)
+            .disposed(by: disposeBag)
         //Outputs
         
         viewModel.output.isLoadingNextPage
@@ -51,7 +61,6 @@ extension NowPlayingVC: UITableViewDelegate {
             }
             .disposed(by: disposeBag)
     }
-  
 }
 
 

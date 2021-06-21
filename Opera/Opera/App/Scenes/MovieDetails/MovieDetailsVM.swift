@@ -46,8 +46,8 @@ class MovieDetailsVM: ViewModel {
     
     // MARK: - Output Private properties
     private let isLoadingSubject = PublishSubject<Bool>()
-    private let movieDetails = PublishSubject<MovieDetails>()
-    private let errorSubject = PublishSubject<AppError?>()
+    private let movieDetails     = PublishSubject<MovieDetails>()
+    private let errorSubject     = PublishSubject<AppError?>()
     
     
     // MARK: - Private properties
@@ -79,7 +79,6 @@ class MovieDetailsVM: ViewModel {
             error: errorSubject.asDriver(onErrorJustReturn: nil)
         )
         
-        
         viewDidLoadSubject
             .flatMap { [weak self] _ -> Observable<Event<MovieDetails>> in
                 guard let self = self else { return .error(AppError.networkError) }
@@ -99,12 +98,10 @@ class MovieDetailsVM: ViewModel {
             })
             .disposed(by: disposeBag)
         
-        
         closeTappedSubject
             .flatMap { [unowned self] in self.router.rx.trigger(.dismiss) }
             .subscribe()
             .disposed(by: disposeBag)
-        
     }
     
 }

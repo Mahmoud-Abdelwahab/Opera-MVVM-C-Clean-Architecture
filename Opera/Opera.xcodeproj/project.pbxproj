@@ -60,6 +60,7 @@
 		A749E26A267F627B00D47FA3 /* MovieDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E269267F627B00D47FA3 /* MovieDetailsVM.swift */; };
 		A749E272268018FC00D47FA3 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E270268018FC00D47FA3 /* GenreCell.swift */; };
 		A749E273268018FC00D47FA3 /* GenreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E271268018FC00D47FA3 /* GenreCell.xib */; };
+		A749E2752680AD2500D47FA3 /* UIScrollView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E2742680AD2400D47FA3 /* UIScrollView+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		A749E269267F627B00D47FA3 /* MovieDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVM.swift; sourceTree = "<group>"; };
 		A749E270268018FC00D47FA3 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		A749E271268018FC00D47FA3 /* GenreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCell.xib; sourceTree = "<group>"; };
+		A749E2742680AD2400D47FA3 /* UIScrollView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 				A749E205267CBEB600D47FA3 /* Transition+Ex.swift */,
 				A749E258267F46F100D47FA3 /* RxMoya+Ex.swift */,
 				A749E25A267F492B00D47FA3 /* String+Ex.swift */,
+				A749E2742680AD2400D47FA3 /* UIScrollView+Ex.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				A749E223267D4FEE00D47FA3 /* TextyTabBarController.swift in Sources */,
 				A749E220267CC46200D47FA3 /* ViewModel.swift in Sources */,
 				A749E24C267F2C9400D47FA3 /* Color.swift in Sources */,
+				A749E2752680AD2500D47FA3 /* UIScrollView+Ex.swift in Sources */,
 				A749E1FF267C28CF00D47FA3 /* LaunchCoordinatore.swift in Sources */,
 				A749E238267DD9B800D47FA3 /* MovieCellVM.swift in Sources */,
 				A749E26A267F627B00D47FA3 /* MovieDetailsVM.swift in Sources */,

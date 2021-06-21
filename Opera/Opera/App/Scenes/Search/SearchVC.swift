@@ -10,9 +10,11 @@ import UIKit
 class SearchVC: BaseViewController<SearchVM> {
     
     @IBOutlet weak var movieTableView: UITableView!
+    
     @IBOutlet weak var searchTF: UITextField!
     
     @IBOutlet weak var noMovieLable: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -42,6 +44,17 @@ extension SearchVC{
             .bind(to: viewModel.input.selectedMovie)
             .disposed(by: disposeBag)
         
+        movieTableView.rx
+            .contentOffset
+            .map{[weak self] _  in
+                guard let self = self else { return false }
+                return self.movieTableView.isNearBottomEdge()
+            }
+            .distinctUntilChanged()
+            .filter{$0 == true}
+            .map{_ in ()}
+            .bind(to: viewModel.input.loadMoreMovies)
+            .disposed(by: disposeBag)
         
         // outputs
         
@@ -58,6 +71,5 @@ extension SearchVC{
                 cell.viewModel = vm
             }
             .disposed(by: disposeBag)
-        
     }
 }
