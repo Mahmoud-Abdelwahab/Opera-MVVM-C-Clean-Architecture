@@ -34,8 +34,7 @@
 		A749E223267D4FEE00D47FA3 /* TextyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E222267D4FEE00D47FA3 /* TextyTabBarController.swift */; };
 		A749E225267D54DC00D47FA3 /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E224267D54DC00D47FA3 /* MovieListUseCase.swift */; };
 		A749E229267D550800D47FA3 /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E228267D550800D47FA3 /* SearchUseCase.swift */; };
-		A749E22B267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E22A267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift */; };
-		A749E22F267D5FC800D47FA3 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E22E267D5FC800D47FA3 /* SearchCoordinator.swift */; };
+		A749E22B267D5F9300D47FA3 /* BrowsingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E22A267D5F9300D47FA3 /* BrowsingCoordinator.swift */; };
 		A749E231267D68B400D47FA3 /* TextyTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E230267D68B400D47FA3 /* TextyTabBarItem.swift */; };
 		A749E235267DD73800D47FA3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E233267DD73800D47FA3 /* MovieCell.swift */; };
 		A749E236267DD73800D47FA3 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E234267DD73800D47FA3 /* MovieCell.xib */; };
@@ -88,8 +87,7 @@
 		A749E222267D4FEE00D47FA3 /* TextyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextyTabBarController.swift; sourceTree = "<group>"; };
 		A749E224267D54DC00D47FA3 /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
 		A749E228267D550800D47FA3 /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
-		A749E22A267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingAndTopRatedCoordinator.swift; sourceTree = "<group>"; };
-		A749E22E267D5FC800D47FA3 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		A749E22A267D5F9300D47FA3 /* BrowsingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingCoordinator.swift; sourceTree = "<group>"; };
 		A749E230267D68B400D47FA3 /* TextyTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextyTabBarItem.swift; sourceTree = "<group>"; };
 		A749E233267DD73800D47FA3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		A749E234267DD73800D47FA3 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
@@ -244,8 +242,7 @@
 				A749E1FE267C28CF00D47FA3 /* LaunchCoordinatore.swift */,
 				A749E200267C29DF00D47FA3 /* MainTabbarCoordinator.swift */,
 				A749E202267C29F600D47FA3 /* OnBoardingCoordinator.swift */,
-				A749E22A267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift */,
-				A749E22E267D5FC800D47FA3 /* SearchCoordinator.swift */,
+				A749E22A267D5F9300D47FA3 /* BrowsingCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -538,7 +535,7 @@
 				A749E272268018FC00D47FA3 /* GenreCell.swift in Sources */,
 				A749E259267F46F100D47FA3 /* RxMoya+Ex.swift in Sources */,
 				A749E225267D54DC00D47FA3 /* MovieListUseCase.swift in Sources */,
-				A749E22B267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift in Sources */,
+				A749E22B267D5F9300D47FA3 /* BrowsingCoordinator.swift in Sources */,
 				A749E250267F40C200D47FA3 /* MovieRepositoryImp.swift in Sources */,
 				A749E1D0267B95E700D47FA3 /* ViewController.swift in Sources */,
 				A749E1CC267B95E700D47FA3 /* AppDelegate.swift in Sources */,
@@ -556,7 +553,6 @@
 				A749E24C267F2C9400D47FA3 /* Color.swift in Sources */,
 				A749E1FF267C28CF00D47FA3 /* LaunchCoordinatore.swift in Sources */,
 				A749E238267DD9B800D47FA3 /* MovieCellVM.swift in Sources */,
-				A749E22F267D5FC800D47FA3 /* SearchCoordinator.swift in Sources */,
 				A749E26A267F627B00D47FA3 /* MovieDetailsVM.swift in Sources */,
 				A749E216267CC2EB00D47FA3 /* SearchVC.swift in Sources */,
 				A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */,

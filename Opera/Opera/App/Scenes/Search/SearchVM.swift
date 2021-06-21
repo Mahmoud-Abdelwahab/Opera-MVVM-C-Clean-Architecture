@@ -38,12 +38,12 @@ class SearchVM: ViewModel {
     
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
-    private let router: WeakRouter<SearchRoute>
+    private let router: WeakRouter<BrowsingRoute>
 
     
     
     // MARK: - Initialization
-    init(router: WeakRouter<SearchRoute>) {
+    init(router: WeakRouter<BrowsingRoute>) {
         self.router = router
   //      self.useCase = useCase
         

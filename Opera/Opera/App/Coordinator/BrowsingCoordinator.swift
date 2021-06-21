@@ -1,5 +1,5 @@
 //
-//  NowPlayingAndTopRatedCoordinator.swift
+//  BrowsingCoordinator.swift
 //  Opera
 //
 //  Created by Mahmoud Abdul-Wahab on 19/06/2021.
@@ -7,24 +7,25 @@
 
 import XCoordinator
 
-enum NowPlayingAndTopRatedRoute: Route {
+enum BrowsingRoute: Route {
     case topRated
     case nowPlaying
+    case search
     case details(Int)
     case dismiss
 }
 
-class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRatedRoute> {
+class BrowsingCoordinator: NavigationCoordinator<BrowsingRoute> {
     
     // MARK: Initialization
     
-    init(router:NowPlayingAndTopRatedRoute) {
+    init(router:BrowsingRoute) {
         super.init(initialRoute: router)
     }
     
     // MARK: Overrides
     
-    override func prepareTransition(for route: NowPlayingAndTopRatedRoute) -> NavigationTransition {
+    override func prepareTransition(for route: BrowsingRoute) -> NavigationTransition {
         switch route {
         case .nowPlaying:
             let nowPlayingVC = NowPlayingVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter, useCase: MovieListUseCase(movieRepsitory: MovieRepositoryImp(), browsing: .nowPlaying)))
@@ -33,6 +34,11 @@ class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRa
             
         case .topRated:
             let topRatedVC = TopRatedVC(viewModel:NowPlayingAndTopRatedVM(router: weakRouter, useCase: MovieListUseCase(movieRepsitory: MovieRepositoryImp(), browsing: .topRated)))
+            topRatedVC.title = "Top Rated"
+            return .push(topRatedVC)
+            
+        case .search:
+            let topRatedVC = SearchVC(viewModel: SearchVM(router: weakRouter))
             topRatedVC.title = "Top Rated"
             return .push(topRatedVC)
             

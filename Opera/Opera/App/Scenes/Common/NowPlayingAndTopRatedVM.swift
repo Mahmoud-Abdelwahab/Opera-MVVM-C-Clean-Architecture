@@ -43,14 +43,14 @@ class NowPlayingAndTopRatedVM: ViewModel {
     
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
-    private let router: WeakRouter<NowPlayingAndTopRatedRoute>
+    private let router: WeakRouter<BrowsingRoute>
     private let useCase: MovieListUseCase
     private let imageBaseURL = "https://image.tmdb.org/t/p/w500/"
     private var currentPage = 1
     private var moviesCellsVMs: [MovieCellVM] = []
     
     // MARK: - Initialization
-    init(router: WeakRouter<NowPlayingAndTopRatedRoute>, useCase: MovieListUseCase) {
+    init(router: WeakRouter<BrowsingRoute>, useCase: MovieListUseCase) {
         self.router = router
         self.useCase = useCase
         

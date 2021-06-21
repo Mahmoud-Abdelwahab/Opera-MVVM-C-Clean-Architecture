@@ -52,12 +52,12 @@ class MovieDetailsVM: ViewModel {
     
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
-    private let router: WeakRouter<NowPlayingAndTopRatedRoute>
+    private let router: WeakRouter<BrowsingRoute>
     private let useCase:MovieDetailsUseCase
     
     
     // MARK: - Initialization
-    init(router: WeakRouter<NowPlayingAndTopRatedRoute>, useCase: MovieDetailsUseCase) {
+    init(router: WeakRouter<BrowsingRoute>, useCase: MovieDetailsUseCase) {
         self.router = router
         self.useCase = useCase
         
