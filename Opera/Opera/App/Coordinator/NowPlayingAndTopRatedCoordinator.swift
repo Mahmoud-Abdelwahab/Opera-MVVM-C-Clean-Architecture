@@ -11,6 +11,7 @@ enum NowPlayingAndTopRatedRoute: Route {
     case topRated
     case nowPlaying
     case details(Int)
+    case dismiss
 }
 
 class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRatedRoute> {
@@ -36,8 +37,21 @@ class NowPlayingAndTopRatedCoordinator: NavigationCoordinator<NowPlayingAndTopRa
             return .push(topRatedVC)
             
         case .details(let id):
+            let movieDetailsVC = MovieDetailsVC(
+                viewModel: MovieDetailsVM(
+                    router: weakRouter,
+                    useCase: MovieDetailsUseCase(id: id, movieRepsitory: MovieRepositoryImp())
+                )
+            )
             
+            movieDetailsVC.title = "Movie Details"
+            movieDetailsVC.modalPresentationStyle = .fullScreen
+            return .present(movieDetailsVC)
+        
+        case .dismiss:
+            return .dismiss()
         }
+        
     }
 }
 

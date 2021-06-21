@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class TopRatedVC: BaseViewController<NowPlayingAndTopRatedVM> {
 
@@ -34,6 +35,11 @@ extension TopRatedVC: UITableViewDelegate {
         //Inputs
         viewModel.input.viewDidload.onNext(())
         
+        
+        topMoviesTableView.rx
+            .modelSelected(MovieCellVM.self)
+            .map{$0.id}
+            .bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
         
         //Outputs
         

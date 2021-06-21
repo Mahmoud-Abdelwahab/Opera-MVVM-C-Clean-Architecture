@@ -13,12 +13,13 @@ class MovieDetailsUseCase{
     
     
     private let movieRepsitory: MoviesRepository
-    
-    init(movieRepsitory: MoviesRepository) {
+    private let id : Int
+    init(id : Int, movieRepsitory: MoviesRepository) {
+        self.id             = id
         self.movieRepsitory = movieRepsitory
     }
     
-    func getMovieDetails(id: Int)->Observable<MovieDetails>{
+    func getMovieDetails()->Observable<MovieDetails>{
         movieRepsitory.getMovieDetails(id: id)
     }
     

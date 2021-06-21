@@ -34,6 +34,10 @@ extension NowPlayingVC: UITableViewDelegate {
         //Inputs
         viewModel.input.viewDidload.onNext(())
         
+        nowPlayingTableView.rx
+            .modelSelected(MovieCellVM.self)
+            .map{$0.id}
+            .bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
         
         //Outputs
         

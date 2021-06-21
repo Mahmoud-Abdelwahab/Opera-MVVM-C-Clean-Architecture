@@ -21,7 +21,7 @@ class NowPlayingAndTopRatedVM: ViewModel {
         let viewDidload     : AnyObserver<Void>
         let showMovieDetails: AnyObserver<Int>
         let loadMoreMovies  : AnyObserver<Void>
-        let selectedMovie: AnyObserver<Int>
+        let selectedMovie   : AnyObserver<Int>
     }
     
     // MARK: - Input Private properties
@@ -81,12 +81,11 @@ class NowPlayingAndTopRatedVM: ViewModel {
                 }
             }).disposed(by: disposeBag)
         
-        selectedMovieSubject.subscribe(onNext: {[weak self] in
-            guard let self = self else {return}
-            self.router.rx.trigger(.movieDetails(id: id))
-        }).disposed(by: disposeBag)
-        
-        
+  
+     selectedMovieSubject
+            .flatMap { [unowned self] id in self.router.rx.trigger(.details(id)) }
+            .subscribe()
+            .disposed(by: disposeBag)
       
         
     }

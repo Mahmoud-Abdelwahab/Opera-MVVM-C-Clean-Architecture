@@ -58,6 +58,9 @@
 		A749E264267F5FCC00D47FA3 /* MovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E263267F5FCC00D47FA3 /* MovieDetailsUseCase.swift */; };
 		A749E267267F621100D47FA3 /* MovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E265267F621100D47FA3 /* MovieDetailsVC.swift */; };
 		A749E268267F621100D47FA3 /* MovieDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E266267F621100D47FA3 /* MovieDetailsVC.xib */; };
+		A749E26A267F627B00D47FA3 /* MovieDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E269267F627B00D47FA3 /* MovieDetailsVM.swift */; };
+		A749E272268018FC00D47FA3 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749E270268018FC00D47FA3 /* GenreCell.swift */; };
+		A749E273268018FC00D47FA3 /* GenreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A749E271268018FC00D47FA3 /* GenreCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +111,9 @@
 		A749E263267F5FCC00D47FA3 /* MovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUseCase.swift; sourceTree = "<group>"; };
 		A749E265267F621100D47FA3 /* MovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVC.swift; sourceTree = "<group>"; };
 		A749E266267F621100D47FA3 /* MovieDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsVC.xib; sourceTree = "<group>"; };
+		A749E269267F627B00D47FA3 /* MovieDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVM.swift; sourceTree = "<group>"; };
+		A749E270268018FC00D47FA3 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
+		A749E271268018FC00D47FA3 /* GenreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +386,7 @@
 		A749E239267DDB6800D47FA3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A749E26B267F794900D47FA3 /* GenreCell */,
 				A749E232267DD6F700D47FA3 /* MovieCell */,
 			);
 			path = Cells;
@@ -415,9 +422,19 @@
 			isa = PBXGroup;
 			children = (
 				A749E265267F621100D47FA3 /* MovieDetailsVC.swift */,
+				A749E269267F627B00D47FA3 /* MovieDetailsVM.swift */,
 				A749E266267F621100D47FA3 /* MovieDetailsVC.xib */,
 			);
 			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		A749E26B267F794900D47FA3 /* GenreCell */ = {
+			isa = PBXGroup;
+			children = (
+				A749E270268018FC00D47FA3 /* GenreCell.swift */,
+				A749E271268018FC00D47FA3 /* GenreCell.xib */,
+			);
+			path = GenreCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +513,7 @@
 				A749E1D5267B95EC00D47FA3 /* Assets.xcassets in Resources */,
 				A749E268267F621100D47FA3 /* MovieDetailsVC.xib in Resources */,
 				A749E217267CC2EB00D47FA3 /* SearchVC.xib in Resources */,
+				A749E273268018FC00D47FA3 /* GenreCell.xib in Resources */,
 				A749E20B267CC29000D47FA3 /* NowPlayingVC.xib in Resources */,
 				A749E212267CC2C500D47FA3 /* TopRatedVC.xib in Resources */,
 				A749E1D3267B95E700D47FA3 /* Main.storyboard in Resources */,
@@ -517,6 +535,7 @@
 				A749E211267CC2C500D47FA3 /* TopRatedVC.swift in Sources */,
 				A749E20D267CC29C00D47FA3 /* NowPlayingAndTopRatedVM.swift in Sources */,
 				A749E242267DEA3F00D47FA3 /* MovieDetails.swift in Sources */,
+				A749E272268018FC00D47FA3 /* GenreCell.swift in Sources */,
 				A749E259267F46F100D47FA3 /* RxMoya+Ex.swift in Sources */,
 				A749E225267D54DC00D47FA3 /* MovieListUseCase.swift in Sources */,
 				A749E22B267D5F9300D47FA3 /* NowPlayingAndTopRatedCoordinator.swift in Sources */,
@@ -538,6 +557,7 @@
 				A749E1FF267C28CF00D47FA3 /* LaunchCoordinatore.swift in Sources */,
 				A749E238267DD9B800D47FA3 /* MovieCellVM.swift in Sources */,
 				A749E22F267D5FC800D47FA3 /* SearchCoordinator.swift in Sources */,
+				A749E26A267F627B00D47FA3 /* MovieDetailsVM.swift in Sources */,
 				A749E216267CC2EB00D47FA3 /* SearchVC.swift in Sources */,
 				A749E203267C29F600D47FA3 /* OnBoardingCoordinator.swift in Sources */,
 				A749E20A267CC29000D47FA3 /* NowPlayingVC.swift in Sources */,
