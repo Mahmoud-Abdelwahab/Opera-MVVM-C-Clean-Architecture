@@ -12,41 +12,56 @@ import RxCocoa
 import XCoordinator
 import XCoordinatorRx
 
-class SearchVM: ViewModel {
+
+
+protocol SearchViewModelInput : BaseInputViewModel {
+    var  loadMoreMovies  : PublishSubject<Void> { set get }
+    var  searchForMovie  : PublishSubject<String> { set get }
+    func showMovieDetails(model: MovieCellVM)
+}
+
+protocol SearchViewModelOutput {
+    var isLoadingNextPage : PublishSubject<Bool> { get }
+    var noMovieLableIsHidden : BehaviorSubject<Bool> { get }
+    var moviesCellsVMs : PublishSubject<[MovieCellVM]> { get }
+    var error : PublishSubject<AppError> { get }
+}
+
+protocol IOViewModel: SearchViewModelOutput,SearchViewModelInput {
     
-    // MARK: - Inputs
-    let input: Input
-    
-    struct Input {
-        let searchText: AnyObserver<String>
-        let loadMoreMovies  : AnyObserver<Void>
-        let selectedMovie: AnyObserver<MovieCellVM>
+}
+
+class SearchVM:IOViewModel {
+
+
+    // MARK: - Input  properties
+    var loadMoreMovies  = PublishSubject<Void>()
+    var searchForMovie = PublishSubject<String>()
+
+    func viewDidLoad() {
+        
     }
     
-    // MARK: - Input Private properties
-    private let searchTextSubject          = PublishSubject<String>()
-    private let loadMoreMoviesTrigger      = PublishSubject<Void>()
-    private let selectedMovieSubject       = PublishSubject<MovieCellVM>()
-    
-    // MARK: - Outputs
-    let output: Output
-    
-    struct Output {
-        let moviesCellsVMs: Driver<[MovieCellVM]>
-        let noMovieLableIsHidden: Driver<Bool>
-        let isLoadingNextPage: Driver<Bool>
-        let error: Driver<AppError?>
+    func viewWillAppear() {
+        
     }
     
-    // MARK: - Output Private properties
-    private let moviesCellsVMsSubject = PublishSubject<[MovieCellVM]>()
-    private let noMovieLableIsHiddenSubject = BehaviorSubject<Bool>(value: false)
-    private let isLoadingNextPageSubject = PublishSubject<Bool>()
-    private let errorSubject = PublishSubject<AppError?>()
+    func showMovieDetails(model: MovieCellVM) {
+        self.router.rx.trigger(.details(model.id))
+            .subscribe()
+            .disposed(by: disposeBag)
+    }
     
+    // MARK: - Output  properties
+    var isLoadingNextPage    = PublishSubject<Bool>()
+    var noMovieLableIsHidden = BehaviorSubject<Bool>(value: false)
+    var moviesCellsVMs       = PublishSubject<[MovieCellVM]>()
+    var error                = PublishSubject<AppError>()
+    
+
     private let imageBaseURL = "https://image.tmdb.org/t/p/w500/"
     private var currentPage = 1
-    private var moviesCellsVMs: [MovieCellVM] = []
+    private var moviesCellsDataSource: [MovieCellVM] = []
     
     // MARK: - Private properties
     private let disposeBag = DisposeBag()
@@ -57,92 +72,74 @@ class SearchVM: ViewModel {
     init(router: WeakRouter<BrowsingRoute> , useCase: SearchUseCase) {
         self.router = router
         self.useCase = useCase
-        
-        input = Input(
-            searchText: searchTextSubject.asObserver(), loadMoreMovies: loadMoreMoviesTrigger.asObserver(),
-            selectedMovie: selectedMovieSubject.asObserver()
-        )
-        
-        // MARK: outputs drivers
-        
-        output = Output(
-            moviesCellsVMs: moviesCellsVMsSubject.asDriver(onErrorJustReturn: []), noMovieLableIsHidden: noMovieLableIsHiddenSubject.asDriver(onErrorJustReturn: false), isLoadingNextPage: isLoadingNextPageSubject.asDriver(onErrorJustReturn: false),
-            error: errorSubject.asDriver(onErrorJustReturn: nil)
-        )
-        
-        moviesCellsVMsSubject.subscribe(onNext:{[weak self] in
+            
+        moviesCellsVMs.subscribe(onNext:{[weak self] in
             guard let self = self else {return}
-            self.noMovieLableIsHiddenSubject.onNext(!$0.isEmpty)
+            self.noMovieLableIsHidden.onNext(!$0.isEmpty)
         }).disposed(by: disposeBag)
         
-        searchTextSubject
-            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .do(onNext:{ [weak self] text in
-                guard let self = self else {return}
-                self.currentPage = 1
-                self.moviesCellsVMs.removeAll()
-                self.moviesCellsVMsSubject.onNext([])
-                self.errorSubject.onNext(nil)
-            })
-            .filter { !$0.isEmpty }
-            .flatMap { [weak self] text -> Observable<Event<Page<Movie>>> in
-                guard let self = self else { return .error(AppError.networkError) }
-                self.isLoadingNextPageSubject.onNext(true)
-                return self.useCase.searchForMovie(searchText: text, page: self.currentPage).materialize()
-            }
-            .subscribe(onNext: { [weak self] event in
-                guard let self = self else { return }
-                self.isLoadingNextPageSubject.onNext(false)
-                switch event {
-                case .next(let page):
-                    self.moviesCellsVMs = self.buildMoviesCellsVMs(page.results)
-                    self.moviesCellsVMsSubject.onNext(self.moviesCellsVMs)
-                case .error(let error):
-                    debugPrint("error getting now playing Movies: \(error)")
-                    self.errorSubject.onNext(error as? AppError ?? .with(message: error.localizedDescription))
-                default:
-                    break
-                }
-            })
-            .disposed(by: disposeBag)
+      
+        searchForMovie
+                   .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+                   .distinctUntilChanged()
+                   .do(onNext:{ [weak self] text in
+                       guard let self = self else {return}
+                       self.currentPage = 1
+                       self.moviesCellsDataSource.removeAll()
+                    self.moviesCellsVMs.onNext([])
+                   })
+                   .filter { !$0.isEmpty }
+                   .flatMap { [weak self] text -> Observable<Event<Page<Movie>>> in
+                       guard let self = self else { return .error(AppError.networkError) }
+                    self.isLoadingNextPage.onNext(true)
+                       return self.useCase.searchForMovie(searchText: text, page: self.currentPage).materialize()
+                   }
+                   .subscribe(onNext: { [weak self] event in
+                       guard let self = self else { return }
+                       self.isLoadingNextPage.onNext(false)
+                       switch event {
+                       case .next(let page):
+                           self.moviesCellsDataSource = self.buildMoviesCellsVMs(page.results)
+                           self.moviesCellsVMs.onNext(self.moviesCellsDataSource)
+                       case .error(let error):
+                           debugPrint("error getting now playing Movies: \(error)")
+                           self.error.onNext(error as? AppError ?? .with(message: error.localizedDescription))
+                       default:
+                           break
+                       }
+                   })
+                   .disposed(by: disposeBag)
         
-        
-        loadMoreMoviesTrigger
-            .withLatestFrom(searchTextSubject)
+        loadMoreMovies
+            .withLatestFrom(searchForMovie)
             .distinctUntilChanged()
             .do(onNext:{ [weak self] text in
                 guard let self = self else {return}
                 self.currentPage += 1
-                self.errorSubject.onNext(nil)
             })
             .filter { !$0.isEmpty }
             .flatMap { [weak self] text -> Observable<Event<Page<Movie>>> in
                 guard let self = self else { return .error(AppError.networkError) }
-                self.isLoadingNextPageSubject.onNext(true)
+                self.isLoadingNextPage.onNext(true)
                 return self.useCase.searchForMovie(searchText: text, page: self.currentPage).materialize()
             }
             .subscribe(onNext: { [weak self] event in
                 guard let self = self else { return }
-                self.isLoadingNextPageSubject.onNext(false)
+                self.isLoadingNextPage.onNext(false)
                 switch event {
                 case .next(let page):
-                    self.moviesCellsVMs = self.buildMoviesCellsVMs(page.results)
-                    self.moviesCellsVMsSubject.onNext(self.moviesCellsVMs)
+                    self.moviesCellsDataSource = self.buildMoviesCellsVMs(page.results)
+                    self.moviesCellsVMs.onNext(self.moviesCellsDataSource)
                 case .error(let error):
                     debugPrint("error getting now playing Movies: \(error)")
-                    self.errorSubject.onNext(error as? AppError ?? .with(message: error.localizedDescription))
+                    self.error.onNext(error as? AppError ?? .with(message: error.localizedDescription))
                 default:
                     break
                 }
             })
             .disposed(by: disposeBag)
         
-        selectedMovieSubject
-            .map { $0.id }
-            .flatMap { [unowned self] id in self.router.rx.trigger(.details(id)) }
-            .subscribe()
-            .disposed(by: disposeBag)
+    
         
     }
     

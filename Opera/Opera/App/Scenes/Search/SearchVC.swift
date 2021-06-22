@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchVC: BaseViewController<SearchVM> {
+class SearchVC: BaseViewController2<SearchVM> {
     
     @IBOutlet weak var movieTableView: UITableView!
     
@@ -37,11 +37,15 @@ extension SearchVC{
         // inputs
         
         searchTF.rx.text.orEmpty
-            .bind(to: viewModel.input.searchText)
+            .bind(to: viewModel.searchForMovie)
             .disposed(by: disposeBag)
-        
+
         movieTableView.rx.modelSelected(MovieCellVM.self)
-            .bind(to: viewModel.input.selectedMovie)
+            .subscribe(onNext: {
+                [weak self] in
+                guard let self = self else {return}
+                self.viewModel.showMovieDetails(model: $0)
+            })
             .disposed(by: disposeBag)
         
         movieTableView.rx
@@ -53,21 +57,21 @@ extension SearchVC{
             .distinctUntilChanged()
             .filter{$0 == true}
             .map{_ in ()}
-            .bind(to: viewModel.input.loadMoreMovies)
+            .bind(to: viewModel.loadMoreMovies)
             .disposed(by: disposeBag)
         
         // outputs
         
-        viewModel.output.noMovieLableIsHidden
-            .drive(noMovieLable.rx.isHidden)
+        viewModel.noMovieLableIsHidden
+            .bind(to: self.noMovieLable.rx.isHidden)
             .disposed(by: disposeBag)
         
-        viewModel.output.isLoadingNextPage
-            .drive(nextPageLoadingIndicator.rx.isAnimating)
+        viewModel.isLoadingNextPage
+            .bind(to:nextPageLoadingIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
-        viewModel.output.moviesCellsVMs
-            .drive(movieTableView.rx.items(cellIdentifier: String(describing: MovieCell.self), cellType: MovieCell.self)) { index, vm , cell in
+        viewModel.moviesCellsVMs
+            .bind(to : movieTableView.rx.items(cellIdentifier: String(describing: MovieCell.self), cellType: MovieCell.self)) { index, vm , cell in
                 cell.viewModel = vm
             }
             .disposed(by: disposeBag)
